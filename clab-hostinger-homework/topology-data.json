@@ -1,0 +1,141 @@
+{
+  "name": "hostinger-homework",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-3d17fd5e97c7",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "leaf01": {
+      "index": "0",
+      "shortname": "leaf01",
+      "longname": "clab-hostinger-homework-leaf01",
+      "fqdn": "leaf01.hostinger-homework.io",
+      "group": "",
+      "labdir": "/home/administrator/homework/clab-hostinger-homework/leaf01",
+      "kind": "cumulus_cvx",
+      "image": "networkop/cx:4.3.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-3d17fd5e97c7",
+        "clab-node-group": "",
+        "clab-node-kind": "cumulus_cvx",
+        "clab-node-lab-dir": "/home/administrator/homework/clab-hostinger-homework/leaf01",
+        "clab-node-name": "leaf01",
+        "clab-node-type": "",
+        "clab-owner": "administrator",
+        "clab-topo-file": "/home/administrator/homework/hostinger-lab.clab.yml",
+        "containerlab": "hostinger-homework"
+      },
+      "port-bindings": [
+      ]
+    },
+    "leaf02": {
+      "index": "1",
+      "shortname": "leaf02",
+      "longname": "clab-hostinger-homework-leaf02",
+      "fqdn": "leaf02.hostinger-homework.io",
+      "group": "",
+      "labdir": "/home/administrator/homework/clab-hostinger-homework/leaf02",
+      "kind": "cumulus_cvx",
+      "image": "networkop/cx:4.3.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-3d17fd5e97c7",
+        "clab-node-group": "",
+        "clab-node-kind": "cumulus_cvx",
+        "clab-node-lab-dir": "/home/administrator/homework/clab-hostinger-homework/leaf02",
+        "clab-node-name": "leaf02",
+        "clab-node-type": "",
+        "clab-owner": "administrator",
+        "clab-topo-file": "/home/administrator/homework/hostinger-lab.clab.yml",
+        "containerlab": "hostinger-homework"
+      },
+      "port-bindings": [
+      ]
+    },
+    "spine01": {
+      "index": "2",
+      "shortname": "spine01",
+      "longname": "clab-hostinger-homework-spine01",
+      "fqdn": "spine01.hostinger-homework.io",
+      "group": "",
+      "labdir": "/home/administrator/homework/clab-hostinger-homework/spine01",
+      "kind": "cumulus_cvx",
+      "image": "networkop/cx:4.3.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-3d17fd5e97c7",
+        "clab-node-group": "",
+        "clab-node-kind": "cumulus_cvx",
+        "clab-node-lab-dir": "/home/administrator/homework/clab-hostinger-homework/spine01",
+        "clab-node-name": "spine01",
+        "clab-node-type": "",
+        "clab-owner": "administrator",
+        "clab-topo-file": "/home/administrator/homework/hostinger-lab.clab.yml",
+        "containerlab": "hostinger-homework"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "spine01",
+        "interface": "swp1",
+        "mac": "aa:c1:ab:54:d5:ca",
+        "peer": "z"
+      },
+      "z": {
+        "node": "leaf01",
+        "interface": "swp50",
+        "mac": "aa:c1:ab:ad:33:3b",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "spine01",
+        "interface": "swp2",
+        "mac": "aa:c1:ab:19:27:5c",
+        "peer": "z"
+      },
+      "z": {
+        "node": "leaf02",
+        "interface": "swp50",
+        "mac": "aa:c1:ab:5c:fe:86",
+        "peer": "a"
+      }
+    }
+  ]
+}

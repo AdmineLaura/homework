@@ -1,0 +1,29 @@
+name: hostinger-homework
+
+topology:
+  nodes:
+    spine01:
+      kind: cumulus_cvx
+      image: networkop/cx:4.3.0
+      runtime: docker
+      binds:
+        - configs/spine01/interfaces:/etc/network/interfaces
+      mgmt-ipv4: 172.20.20.3
+    leaf01:
+      kind: cumulus_cvx
+      image: networkop/cx:4.3.0
+      runtime: docker
+      binds:
+        - configs/leaf01/interfaces:/etc/network/interfaces
+      mgmt-ipv4: 172.20.20.2
+    leaf02:
+      kind: cumulus_cvx
+      image: networkop/cx:4.3.0
+      runtime: docker
+      binds:
+        - configs/leaf02/interfaces:/etc/network/interfaces
+      mgmt-ipv4: 172.20.20.4
+
+  links:
+    - endpoints: ["spine01:swp1", "leaf01:swp50"]
+    - endpoints: ["spine01:swp2", "leaf02:swp50"]

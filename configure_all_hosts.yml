@@ -1,0 +1,28 @@
+---
+- hosts: all
+  remote_user: root
+
+  tasks:
+
+    - name: "Copy motd file to /etc/motd"
+      template:
+        src: templates/motd.j2
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: '644'
+
+    - name: "Write the frr config file to /etc/frr"
+      template:
+        src: "configs/{{ hostname }}/frr.conf"
+        dest: /etc/frr/frr.conf
+
+    - name: "Write the frr daemons file to enable bgpd"
+      template:
+        src: "configs/{{ hostname }}/daemons"
+        dest: /etc/frr/daemons
+
+    - name: "Restart frr"
+      service:
+        name: frr
+        state: restarted
