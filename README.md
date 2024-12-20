@@ -53,38 +53,78 @@ clab-hostinger-homework-spine01:
 ## BGP configuration
 
 router bgp 65201
- bgp router-id 10.255.255.3
- no bgp ebgp-requires-policy
- neighbor 10.1.0.1 remote-as external
+    bgp router-id 10.255.255.3
+    no bgp ebgp-requires-policy
+    neighbor 10.1.0.1 remote-as external
 
 router bgp 65201
- bgp router-id 10.255.255.2
- no bgp ebgp-requires-policy
- neighbor 10.2.0.1 remote-as external
+    bgp router-id 10.255.255.2
+    no bgp ebgp-requires-policy
+    neighbor 10.2.0.1 remote-as external
 
 router bgp 65199
- bgp router-id 10.255.255.1
- no bgp ebgp-requires-policy
- neighbor 10.1.0.2 remote-as external
- neighbor 10.2.0.2 remote-as external
+    bgp router-id 10.255.255.1
+    no bgp ebgp-requires-policy
+    neighbor 10.1.0.2 remote-as external
+    neighbor 10.2.0.2 remote-as external
   
-
+<br>
 
 ## Step-by-step instruction on how to install the lab
 
-1. Download repo files to the Ubuntu server and place them to users home directory.
-2. run script 1_install_components.sh
-3. run script 2_setup_containerlab_lab.sh
-4. run script 3_install_ssh_keys_to_clients.sh
-5. run script 4_run_ansible_homework.sh
+<br>
 
+#### 1. Download repo files to the Ubuntu server and place them to users home directory.
+```
+git clone https://github.com/AdmineLaura/homework.git
+```  
+<br>
 
-6. run script check_bgp_status.sh to check if bgp sessions are established.
-   
+#### 2. Run script "1_install_components.sh"
+   _This script will automaticaly install Containerlab, Python packege instaler and Ansible 8.5._
+```
+./1_install_components.sh
+``` 
+<br>
 
-To delete the lab: 
+#### 3. Run script "2_setup_containerlab_lab.sh"
+   _The script will deploy virtual network environment with predefined configuration in "hostinger-lab.clab.yml" file._ 
+```
+ ./2_setup_containerlab_lab.sh
+```
+ <br>
+ 
+#### 4. Wait few minutes until container stervices wiill start and then run script "3_install_ssh_keys_to_clients.sh"
+   _This script will generate a ssh private and pablic keys, and will try to add public keys to the containers. Script will ask to login into each container. 
+   Default logins for containers are root/root. It is highly recomended to change logins after container creation._
+```
+./3_install_ssh_keys_to_clients.sh
+```
+<br>
+
+#### 5. Run script "4_run_ansible_homework.sh"
+   _The scipt will run ansible-playbook that will create a custom MOTD message display:_
+- A welcome message with the server hostname.
+- The operating distribution name and version.
+- The kernel version.
+- Configure FRRouting daemon with BGP sessions between spine and leaf switches.
+```
+./4_run_ansible_homework.sh
+```
+<br>
+
+#### 6. Run script check_bgp_status.sh to check if bgp sessions are established.
+   _This script will show bgp summary of each container to verity the bpg status_
+```
+./check_bgp_status.sh
+```   
+<br>
+
+To delete the lab use the command: 
 sudo containerlab destroy -t lab_network_setup.clab.yml --cleanup
-
+<br>
+<br>
+<br>
 
 ## Usefull commands to navigate inside the lab
 
@@ -108,7 +148,7 @@ sudo containerlab inspect
 ╰─────────────────────────────────┴────────────────────┴─────────┴───────────────────╯
 ```
 (The output should confirm all nodes are running.)
-
+<br>
 
 Confirm that BGP sessions are established among all peers.
 ```
@@ -120,14 +160,14 @@ docker exec clab-hostinger-homework-spine01 net show bgp summary
 ```
 
 
-Show the routes learned from BGP in the routing table. Notices there are two paths to each host.
+Show routes that were learned from BGP in the routing table. 
 ```
-docker exec clab-hostinger-homework-leaf01 vtysh -c "show ip route bgp"
+docker exec clab-hostinger-homework-leaf01 vtysh -c "show ip route bgp"     ??????
 ```
 or using Cumulus commands:
 ```
-docker exec clab-hostinger-homework-spine01 net show bgp Show all routes
+docker exec clab-hostinger-homework-spine01 net show bgp Show all routes    ?????
 ```
 ```
-docker exec clab-hostinger-homework-spine01 net
+docker exec clab-hostinger-homework-spine01 net   ?????
 ```
