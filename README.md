@@ -48,7 +48,7 @@ clab-hostinger-homework-spine01:
 - 10.1.0.1/24 IP address on interface swp1
 - 10.2.0.1/24 IP address on interface swp2
 - 10.255.255.1/32 lo IP address
-
+<br>
 
 ## BGP configuration
 
@@ -121,7 +121,9 @@ git clone https://github.com/AdmineLaura/homework.git
 <br>
 
 To delete the lab use the command: 
+```
 sudo containerlab destroy -t lab_network_setup.clab.yml --cleanup
+```
 <br>
 <br>
 <br>
