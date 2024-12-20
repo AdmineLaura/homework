@@ -6,7 +6,7 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-3d17fd5e97c7",
+        "bridge": "br-c34b7f9da9ff",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -23,7 +23,7 @@
       "longname": "clab-hostinger-homework-leaf01",
       "fqdn": "leaf01.hostinger-homework.io",
       "group": "",
-      "labdir": "/home/administrator/homework/clab-hostinger-homework/leaf01",
+      "labdir": "/home/laura/homework/clab-hostinger-homework/leaf01",
       "kind": "cumulus_cvx",
       "image": "networkop/cx:4.3.0",
       "mgmt-net": "",
@@ -34,14 +34,14 @@
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-3d17fd5e97c7",
+        "clab-mgmt-net-bridge": "br-c34b7f9da9ff",
         "clab-node-group": "",
         "clab-node-kind": "cumulus_cvx",
-        "clab-node-lab-dir": "/home/administrator/homework/clab-hostinger-homework/leaf01",
+        "clab-node-lab-dir": "/home/laura/homework/clab-hostinger-homework/leaf01",
         "clab-node-name": "leaf01",
         "clab-node-type": "",
-        "clab-owner": "administrator",
-        "clab-topo-file": "/home/administrator/homework/hostinger-lab.clab.yml",
+        "clab-owner": "laura",
+        "clab-topo-file": "/home/laura/homework/hostinger-lab.clab.yml",
         "containerlab": "hostinger-homework"
       },
       "port-bindings": [
@@ -53,7 +53,7 @@
       "longname": "clab-hostinger-homework-leaf02",
       "fqdn": "leaf02.hostinger-homework.io",
       "group": "",
-      "labdir": "/home/administrator/homework/clab-hostinger-homework/leaf02",
+      "labdir": "/home/laura/homework/clab-hostinger-homework/leaf02",
       "kind": "cumulus_cvx",
       "image": "networkop/cx:4.3.0",
       "mgmt-net": "",
@@ -64,14 +64,14 @@
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-3d17fd5e97c7",
+        "clab-mgmt-net-bridge": "br-c34b7f9da9ff",
         "clab-node-group": "",
         "clab-node-kind": "cumulus_cvx",
-        "clab-node-lab-dir": "/home/administrator/homework/clab-hostinger-homework/leaf02",
+        "clab-node-lab-dir": "/home/laura/homework/clab-hostinger-homework/leaf02",
         "clab-node-name": "leaf02",
         "clab-node-type": "",
-        "clab-owner": "administrator",
-        "clab-topo-file": "/home/administrator/homework/hostinger-lab.clab.yml",
+        "clab-owner": "laura",
+        "clab-topo-file": "/home/laura/homework/hostinger-lab.clab.yml",
         "containerlab": "hostinger-homework"
       },
       "port-bindings": [
@@ -83,7 +83,7 @@
       "longname": "clab-hostinger-homework-spine01",
       "fqdn": "spine01.hostinger-homework.io",
       "group": "",
-      "labdir": "/home/administrator/homework/clab-hostinger-homework/spine01",
+      "labdir": "/home/laura/homework/clab-hostinger-homework/spine01",
       "kind": "cumulus_cvx",
       "image": "networkop/cx:4.3.0",
       "mgmt-net": "",
@@ -94,14 +94,14 @@
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-3d17fd5e97c7",
+        "clab-mgmt-net-bridge": "br-c34b7f9da9ff",
         "clab-node-group": "",
         "clab-node-kind": "cumulus_cvx",
-        "clab-node-lab-dir": "/home/administrator/homework/clab-hostinger-homework/spine01",
+        "clab-node-lab-dir": "/home/laura/homework/clab-hostinger-homework/spine01",
         "clab-node-name": "spine01",
         "clab-node-type": "",
-        "clab-owner": "administrator",
-        "clab-topo-file": "/home/administrator/homework/hostinger-lab.clab.yml",
+        "clab-owner": "laura",
+        "clab-topo-file": "/home/laura/homework/hostinger-lab.clab.yml",
         "containerlab": "hostinger-homework"
       },
       "port-bindings": [
@@ -113,13 +113,13 @@
       "a": {
         "node": "spine01",
         "interface": "swp1",
-        "mac": "aa:c1:ab:54:d5:ca",
+        "mac": "aa:c1:ab:ec:27:a6",
         "peer": "z"
       },
       "z": {
         "node": "leaf01",
         "interface": "swp50",
-        "mac": "aa:c1:ab:ad:33:3b",
+        "mac": "aa:c1:ab:c9:45:8b",
         "peer": "a"
       }
     },
@@ -127,13 +127,13 @@
       "a": {
         "node": "spine01",
         "interface": "swp2",
-        "mac": "aa:c1:ab:19:27:5c",
+        "mac": "aa:c1:ab:55:d5:88",
         "peer": "z"
       },
       "z": {
         "node": "leaf02",
         "interface": "swp50",
-        "mac": "aa:c1:ab:5c:fe:86",
+        "mac": "aa:c1:ab:7b:5b:26",
         "peer": "a"
       }
     }

@@ -1,1 +1,0 @@
-ansible-playbook configure_all_hosts.yml
